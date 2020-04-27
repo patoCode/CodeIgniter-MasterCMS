@@ -25,6 +25,10 @@ class BaseCrud extends CI_Controller {
 
 
 	public function _renderCrud($output = null){
-        $this->load->view('admin/main_template',$output);
+		if(checkLogin()){
+        	$this->load->view('admin/main_template',$output);
+		}else{
+			redirect('Administration/login');
+		}
     }
 }

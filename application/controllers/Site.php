@@ -7,6 +7,10 @@ class Site extends CI_Controller {
 		parent::__construct();
 	}
 
+	private function _renderCrud($output = null){
+        $this->load->view('example.php',$output);
+    }
+
 	public function admin(){
 
  		$crud = new grocery_CRUD();
@@ -24,7 +28,8 @@ class Site extends CI_Controller {
         $this->_renderCrud($output);
     }
 
-	private function _renderCrud($output = null){
-        $this->load->view('example.php',$output);
+    public function Home()
+    {
+    	echo "WELCOME HOME";
     }
 }

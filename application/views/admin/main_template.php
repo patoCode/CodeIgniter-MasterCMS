@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,9 +16,13 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url(); ?>public/admin/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <?php foreach($css_files as $file): ?>
-    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-  <?php endforeach; ?>
+  <?php
+  if(isset($css_files)):
+    foreach($css_files as $file): ?>
+      <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+  <?php endforeach;
+  endif;
+  ?>
 
 </head>
 
@@ -48,7 +50,13 @@
 
           <!-- Content Row -->
           <div class="row">
-            <?php echo $output; ?>
+            <?php
+              if(isset($output)):
+                echo $output;
+              else:
+                $this->load->view('admin/welcome');
+              endif;
+            ?>
           </div>
         </div>
         <!-- /.container-fluid -->
@@ -86,9 +94,13 @@
   <script src="<?php echo base_url(); ?>public/admin/assets/js/demo/chart-area-demo.js"></script>
   <script src="<?php echo base_url(); ?>public/admin/assets/js/demo/chart-pie-demo.js"></script>
 
-   <?php foreach($js_files as $file): ?>
-        <script src="<?php echo $file; ?>"></script>
-    <?php endforeach; ?>
+   <?php
+   if(isset($js_files)):
+      foreach($js_files as $file): ?>
+          <script src="<?php echo $file; ?>"></script>
+      <?php
+      endforeach;
+    endif;?>
 
 </body>
 
