@@ -1,0 +1,2 @@
+<?php
+$lang['subject'] = 'Asunto';

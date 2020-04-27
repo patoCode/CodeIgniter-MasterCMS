@@ -12,7 +12,7 @@ class Examples extends CI_Controller {
 		$this->load->library('grocery_CRUD');
 	}
 
-	public function _example_output($output = null)
+	public function _renderCrud($output = null)
 	{
 		$this->load->view('example.php',(array)$output);
 	}
@@ -21,12 +21,12 @@ class Examples extends CI_Controller {
 	{
 		$output = $this->grocery_crud->render();
 
-		$this->_example_output($output);
+		$this->_renderCrud($output);
 	}
 
 	public function index()
 	{
-		$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+		$this->_renderCrud((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
 	}
 
 	public function offices_management()
@@ -42,7 +42,7 @@ class Examples extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -65,7 +65,7 @@ class Examples extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 	}
 
 	public function customers_management()
@@ -82,7 +82,7 @@ class Examples extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 	}
 
 	public function orders_management()
@@ -98,7 +98,7 @@ class Examples extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 	}
 
 	public function products_management()
@@ -112,7 +112,7 @@ class Examples extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 	}
 
 	public function valueToEuro($value, $row)
@@ -133,7 +133,7 @@ class Examples extends CI_Controller {
 
 		$output = $crud->render();
 
-		$this->_example_output($output);
+		$this->_renderCrud($output);
 	}
 
 	public function film_management_twitter_bootstrap()
@@ -150,7 +150,7 @@ class Examples extends CI_Controller {
 			$crud->fields('title', 'description', 'actors' ,  'category' ,'release_year', 'rental_duration', 'rental_rate', 'length', 'replacement_cost', 'rating', 'special_features');
 
 			$output = $crud->render();
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -173,7 +173,7 @@ class Examples extends CI_Controller {
 		$css_files = $output1->css_files + $output2->css_files + $output3->css_files;
 		$output = "<h1>List 1</h1>".$output1->output."<h1>List 2</h1>".$output2->output."<h1>List 3</h1>".$output3->output;
 
-		$this->_example_output((object)array(
+		$this->_renderCrud((object)array(
 				'js_files' => $js_files,
 				'css_files' => $css_files,
 				'output'	=> $output
@@ -191,7 +191,7 @@ class Examples extends CI_Controller {
 		$output = $crud->render();
 
 		if($crud->getState() != 'list') {
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 		} else {
 			return $output;
 		}
@@ -216,7 +216,7 @@ class Examples extends CI_Controller {
 		$output = $crud->render();
 
 		if($crud->getState() != 'list') {
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 		} else {
 			return $output;
 		}
@@ -239,7 +239,7 @@ class Examples extends CI_Controller {
 		$output = $crud->render();
 
 		if($crud->getState() != 'list') {
-			$this->_example_output($output);
+			$this->_renderCrud($output);
 		} else {
 			return $output;
 		}
